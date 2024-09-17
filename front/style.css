@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+}
+
+svg {
+  width: 50rem;
+  height: 25rem;
+  border: 0.1rem solid #000;
+
+  circle {
+    stroke: #000;
+    stroke-width: 0.02rem;
+    fill: transparent;
+  }
+}
