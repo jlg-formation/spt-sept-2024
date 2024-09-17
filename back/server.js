@@ -5,7 +5,7 @@ import api from "./api.js";
 
 const app = express();
 const port = 3000;
-const publicDir = ".";
+const publicDir = "../front";
 
 app.use((req, res, next) => {
   console.log(req.method, req.path);

@@ -1,14 +1,7 @@
-console.log("coucou");
+import { cx0, r0, cy0, svgns, r } from "./constants.js";
 
 const samples = 10;
 const multiplicationFactor = 2;
-
-const svgns = "http://www.w3.org/2000/svg";
-
-const r = 1;
-const cx0 = 50;
-const cy0 = 50;
-const r0 = 45;
 
 const container = document.querySelector("g.samples");
 if (container === null) {
