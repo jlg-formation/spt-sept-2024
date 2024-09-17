@@ -19,4 +19,11 @@ svg {
       stroke-width: 0;
     }
   }
+
+  g.lines {
+    line {
+      stroke-width: 0.02rem;
+      stroke: #000;
+    }
+  }
 }
