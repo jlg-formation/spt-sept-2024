@@ -1,7 +1,7 @@
-const express = require("express");
-const { random } = require("./utils");
+import { Router } from "express";
+import { random } from "./utils.js";
 
-const app = express.Router();
+const app = Router();
 
 app.get("/random-config", (req, res) => {
   res.json({
@@ -10,4 +10,4 @@ app.get("/random-config", (req, res) => {
   });
 });
 
-module.exports = app;
+export default app;
