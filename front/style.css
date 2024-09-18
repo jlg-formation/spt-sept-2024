@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -24,6 +30,30 @@ svg {
     line {
       stroke-width: 0.02rem;
       stroke: #000;
+    }
+  }
+}
+
+div.command {
+  border: 0.1rem solid #000;
+  width: 50rem;
+  padding: 0.5rem;
+
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+
+  label {
+    display: flex;
+    flex-flow: column;
+  }
+
+  div.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      padding: 0.5rem 3rem;
+      cursor: pointer;
     }
   }
 }
