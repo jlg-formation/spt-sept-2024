@@ -1,12 +1,10 @@
 import { cx0, r0, cy0 } from "../constants.js";
+import { Point } from "../interfaces/Point.js";
 
-/**
- *
- * @param {number} index
- * @param {number} samples
- * @returns {{x: number; y: number;}}
- */
-export const computePointOnBigCircle = (index, samples) => {
+export const computePointOnBigCircle = (
+  index: number,
+  samples: number
+): Point => {
   const angle = index * ((2 * Math.PI) / samples);
 
   const x = cx0 + r0 * Math.cos(angle);

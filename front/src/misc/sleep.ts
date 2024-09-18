@@ -1,6 +1,4 @@
-/**
- *
- * @param {number} delayMs
- * @returns {Promise<void>}
- */
-export const sleep = (delayMs) => new Promise((r) => setTimeout(r, delayMs));
+export type millisecond = number;
+
+export const sleep = (delay: millisecond): Promise<void> =>
+  new Promise((r) => setTimeout(r, delay));

@@ -1,19 +1,21 @@
-import { $ } from "./misc/element.js";
-import { sleep } from "./misc/sleep.js";
+import { Config } from "./interfaces/Config";
+import { $, keys } from "./misc/element";
+import { sleep } from "./misc/sleep";
+
+type Callback = (newConfig: Config) => void;
 
 export class Command {
   config = { samples: 0, multiplicationFactor: 0 };
   isPlaying = false;
 
-  /** @type {(config: { samples: number, multiplicationFactor: number }) => void} */
-  callback;
+  callback: Callback = () => {};
 
   constructor() {
     this.render();
     this.setActions();
   }
   setActions() {
-    for (const key of Object.keys(this.config)) {
+    for (const key of keys(this.config)) {
       const elt = $(`div.command label.${key} input`, HTMLInputElement);
       elt.addEventListener("input", () => {
         this.config[key] = +elt.value;
@@ -62,7 +64,7 @@ export class Command {
   }
 
   render() {
-    for (const key of Object.keys(this.config)) {
+    for (const key of keys(this.config)) {
       $(`div.command label.${key} span.value`).innerHTML =
         this.config[key] + "";
 
@@ -75,11 +77,11 @@ export class Command {
     }
   }
 
-  onUpdate(callback) {
+  onUpdate(callback: Callback) {
     this.callback = callback;
   }
 
-  setConfig(config) {
+  setConfig(config: Config) {
     this.config = config;
     this.render();
   }

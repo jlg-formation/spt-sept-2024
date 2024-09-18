@@ -1,6 +1,5 @@
-/** @type {<T extends Element>(selector: string, type?: new () => T) => T} */
-export const $ = (selector, type?) => {
-  const elt = document.querySelector(selector);
+export const $ = <T extends Element>(selector: string, type?: new () => T) => {
+  const elt = document.querySelector<T>(selector);
   if (elt === null) {
     throw new Error(`Cannot find element with selector ${selector}`);
   }
@@ -10,16 +9,17 @@ export const $ = (selector, type?) => {
     }
   }
 
-  // @ts-ignore
   return elt;
 };
 
-/**
- *
- * @param {Element} elt
- * @param {string} key
- * @param {number} value
- */
-export const setNumberAttribute = (elt, key, value) => {
+export const setNumberAttribute = (
+  elt: Element,
+  key: string,
+  value: number
+) => {
   elt.setAttributeNS(null, key, value + "");
+};
+
+export const keys = <T extends object>(obj: T) => {
+  return Object.keys(obj) as (keyof T)[];
 };

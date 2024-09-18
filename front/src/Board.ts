@@ -1,12 +1,13 @@
 import { svgns, r } from "./constants";
+import { Config } from "./interfaces/Config";
 import { setNumberAttribute, $ } from "./misc/element";
 import { computePointOnBigCircle } from "./misc/math";
 
 export class Board {
-  /**
-   * @type {{ samples: number; multiplicationFactor: number; }}
-   */
-  config;
+  config: Config = {
+    samples: 0,
+    multiplicationFactor: 0,
+  };
 
   draw() {
     $("g.samples").innerHTML = "";
@@ -39,10 +40,7 @@ export class Board {
     }
   }
 
-  /**
-   * @param {{ samples: number; multiplicationFactor: number; }} config
-   */
-  setConfig(config) {
+  setConfig(config: Config) {
     this.config = config;
   }
 }
