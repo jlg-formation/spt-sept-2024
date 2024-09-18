@@ -52,6 +52,7 @@ div.command {
     display: flex;
     justify-content: space-evenly;
     button {
+      width: 15rem;
       padding: 0.1rem 3rem;
       cursor: pointer;
       font-size: 1.5rem;

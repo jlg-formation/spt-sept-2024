@@ -53,8 +53,8 @@ export class Command {
         this.config[key] + "";
 
       $("div.command div.buttons button.play").innerHTML = this.isPlaying
-        ? "⏸"
-        : "⏵";
+        ? "⏸Pause"
+        : "⏵Lecture";
     }
   }
 
