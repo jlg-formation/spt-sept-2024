@@ -5,6 +5,9 @@ export class Command {
   config = { samples: 0, multiplicationFactor: 0 };
   isPlaying = false;
 
+  /** @type {(config: { samples: number, multiplicationFactor: number }) => void} */
+  callback;
+
   constructor() {
     this.render();
     this.setActions();
@@ -20,6 +23,20 @@ export class Command {
     }
 
     this.setPlayAction();
+    this.setRandomAction();
+  }
+
+  setRandomAction() {
+    $("div.command div.buttons button.random").addEventListener(
+      "click",
+      async () => {
+        const response = await fetch("/api/random-config");
+        const config = await response.json();
+        console.log("config: ", config);
+        this.setConfig(config);
+        this.callback(this.config);
+      }
+    );
   }
 
   setPlayAction() {
