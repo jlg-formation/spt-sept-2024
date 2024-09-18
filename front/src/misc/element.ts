@@ -1,5 +1,5 @@
 /** @type {<T extends Element>(selector: string, type?: new () => T) => T} */
-export const $ = (selector, type) => {
+export const $ = (selector, type?) => {
   const elt = document.querySelector(selector);
   if (elt === null) {
     throw new Error(`Cannot find element with selector ${selector}`);
