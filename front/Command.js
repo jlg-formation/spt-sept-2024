@@ -4,6 +4,17 @@ export class Command {
   config = { samples: 0, multiplicationFactor: 0 };
   constructor() {
     this.render();
+    this.setActions();
+  }
+  setActions() {
+    for (const key of Object.keys(this.config)) {
+      const elt = $(`div.command label.${key} input`, HTMLInputElement);
+      elt.addEventListener("input", () => {
+        this.config[key] = +elt.value;
+        this.render();
+        this.callback(this.config);
+      });
+    }
   }
 
   render() {

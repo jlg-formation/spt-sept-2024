@@ -9,6 +9,8 @@ export class Board {
   config;
 
   draw() {
+    $("g.samples").innerHTML = "";
+    $("g.lines").innerHTML = "";
     const { samples, multiplicationFactor } = this.config;
     for (let i = 0; i < samples; i++) {
       const { x, y } = computePointOnBigCircle(i, samples);
